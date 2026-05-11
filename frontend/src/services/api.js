@@ -1,7 +1,10 @@
 import axios from "axios";
 
+const apiHost = (import.meta.env.VITE_API_URL || "https://terabyte-wew6.onrender.com").replace(/\/$/, "");
+const apiBaseURL = apiHost.endsWith("/api") ? apiHost : `${apiHost}/api`;
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://terabyte-wew6.onrender.com",
+  baseURL: apiBaseURL,
 });
 
 api.interceptors.request.use((config) => {
