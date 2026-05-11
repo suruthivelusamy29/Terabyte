@@ -1,0 +1,43 @@
+.vrow { margin-bottom: 36px; }
+.vrow-wrap { position: relative; }
+
+/* Card width — compact Netflix-style */
+.vrow-item {
+  width: 150px;
+  flex-shrink: 0;
+}
+@media (min-width: 480px)  { .vrow-item { width: 160px; } }
+@media (min-width: 768px)  { .vrow-item { width: 170px; } }
+@media (min-width: 1024px) { .vrow-item { width: 180px; } }
+@media (min-width: 1280px) { .vrow-item { width: 190px; } }
+
+/* Scroll row gap */
+.scroll-row { gap: 10px; }
+
+/* Arrow buttons */
+.vrow-arrow {
+  position: absolute;
+  top: 38%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(8,8,16,0.92);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  opacity: 0;
+}
+.vrow-wrap:hover .vrow-arrow { opacity: 1; }
+.vrow-arrow:hover { background: rgba(124,58,237,0.85); border-color: #7c3aed; transform: translateY(-50%) scale(1.05); }
+.vrow-arrow.left  { left: -18px; }
+.vrow-arrow.right { right: -18px; }
+
+@media (max-width: 768px) {
+  .vrow-arrow { display: none; }
+  .vrow { margin-bottom: 24px; }
+  .scroll-row { gap: 8px; }
+}
